@@ -6,6 +6,7 @@ import { styles } from "./styles";
 import rocket from "../../../assets/rocket.png";
 import plus from "../../../assets/plus.png";
 import clipboard from "../../../assets/Clipboard.png";
+import { Tasks } from '../../components/Tasks';
 
 export default function Home() {
   const [focus, setFocus] = useState(false)
@@ -41,7 +42,12 @@ export default function Home() {
             <Text style={styles.countTextTask}>0</Text>
           </View>
         </View>
-        <View style={styles.tasks}>
+        <Tasks />
+        <Tasks />
+        <Tasks />
+        <Tasks />
+
+        {/* <View style={styles.tasks}>
           <View style={styles.emptyTask}>
             <Image source={clipboard} />
             <Text style={styles.emptyTextTask}>
@@ -50,7 +56,7 @@ export default function Home() {
               seus itens a fazer
             </Text>
           </View>
-        </View>
+        </View> */}
       </View>
     </>
   );
