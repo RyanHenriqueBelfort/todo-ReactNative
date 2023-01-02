@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { View, Text, Image, TouchableOpacity} from "react-native";
+import { View, Text, Image, TouchableOpacity, Alert} from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import trash from '../../../assets/trash.png';
@@ -8,7 +8,7 @@ import { styles } from './styles';
 
 interface TaskProps {
 task: string
-onRemove: () => void
+onRemove: (checK: boolean) => void
 setTaskCompletedCount: React.Dispatch<React.SetStateAction<number>>
 taskCompletedCount: number
 }
@@ -45,7 +45,7 @@ export function Tasks({task, onRemove, setTaskCompletedCount, taskCompletedCount
         }}
         onPress={handleTask}
       />
-      <TouchableOpacity onPress={onRemove}>
+      <TouchableOpacity onPress={() => onRemove(check)}>
         <Image source={trash} style={styles.image}/>
       </TouchableOpacity>
     </View>

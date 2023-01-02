@@ -35,11 +35,11 @@ export default function Home() {
     setTaskNewCount(tasks.length + 1);
   }
 
-  function handleParticipantRemove(name: string) {
+  function handleParticipantRemove(name: string, check?: boolean) {
     Alert.alert("Remover Task", `Deseja remover essa tarefa ${name}?`, [
       {
         text: "Sim",
-        onPress: () => removerParticipant(name),
+        onPress: () => removerParticipant(name, check),
       },
       {
         text: "Não",
@@ -48,10 +48,10 @@ export default function Home() {
     ]);
   }
 
-  function removerParticipant(name: string) {
+  function removerParticipant(name: string, check?: boolean) {
     setTasks(tasks.filter((item) => item !== name));
     setTaskNewCount(tasks.length - 1);
-    if(taskCompletedCount > 0) {
+    if(check && taskCompletedCount > 0) {
       setTaskCompletedCount(taskCompletedCount - 1)
     }
   }
@@ -96,7 +96,7 @@ export default function Home() {
             <Tasks
               key={item}
               task={item}
-              onRemove={() => handleParticipantRemove(item)}
+              onRemove={(check: boolean) => handleParticipantRemove(item, check)}
               setTaskCompletedCount={setTaskCompletedCount}
               taskCompletedCount={taskCompletedCount}
             />
