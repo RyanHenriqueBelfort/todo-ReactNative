@@ -109,5 +109,5 @@ export const styles = StyleSheet.create({
     },
     textBold: {
         fontWeight: 'bold',
-    }
+    },
 })
