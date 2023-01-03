@@ -8,7 +8,7 @@ import { styles } from './styles';
 
 interface TaskProps {
 task: string
-onRemove: (checK: boolean) => void
+onRemove: (check: boolean) => void
 setTaskCompletedCount: React.Dispatch<React.SetStateAction<number>>
 taskCompletedCount: number
 }
@@ -29,7 +29,6 @@ export function Tasks({task, onRemove, setTaskCompletedCount, taskCompletedCount
       }
     }, [check])
 
-    console.log(taskCompletedCount)
   return (
     <View style={check ? [styles.content, {borderWidth: 0}] : styles.content }>
       <BouncyCheckbox
